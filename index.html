@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <div class="container">
+        <!-- Title Section -->
+        <h1>Curious Gifter</h1>
+        <!-- Generate Button -->
+        <span class='start-btn'onclick="generateImage()">GENERATE</span>
+        <!-- Clear Button Section -->
+        <span class='start-btn'onclick="clearImages()">CLEAR</span>
+        
+        <!-- Image Display Section -->
+        <div class="image-display" id="image-display">
+            <!-- <img id="generated-image" src="" alt="Generated Image"> -->
+        </div>
+    </div>
+
+    <!-- Icon Link -->
+    <a href="newpage.html">
+        <img class="icon" src="page content/openletter.png" alt="Icon">
+    </a>
+
+    <script>
+        function generateImage() {
+            var imageRepository = [
+                "gift images/image1.png",
+                "gift images/image2.png",
+                "gift images/image3.png",
+                "gift images/image4.png",
+                "gift images/image5.png",
+                "gift images/image6.png",
+                "gift images/image7.png",
+                "gift images/image8.png",
+                "gift images/image9.png",
+                "gift images/image10.png",
+                "gift images/image11.png",
+                "gift images/image12.png",
+                "gift images/image13.gif",
+                "gift images/image14.png",
+
+                // Add more image URLs here
+            ];
+            // Randomize which image is chosen
+            var randomIndex = Math.floor(Math.random() * imageRepository.length);
+
+            // Get the generated image element
+            var generatedImage = document.getElementById("generated-image");
+            
+            // Create a new image element for the generated image
+            var generatedImage = document.createElement("img");
+            generatedImage.src = imageRepository[randomIndex];
+
+            // Randomize the position of the generated image
+            var containerWidth = document.querySelector('.container').offsetWidth;
+            var containerHeight = document.querySelector('.container').offsetHeight;
+            var imageWidth = generatedImage.offsetWidth;
+            var imageHeight = generatedImage.offsetHeight;
+
+            // Calculate random positions within the window bounds
+            var randomLeft = Math.floor(Math.random() * (containerWidth - imageWidth));
+            var randomTop = Math.floor(Math.random() * (containerHeight - imageHeight));
+
+            // Apply the random positions to the generated image
+            generatedImage.style.left = randomLeft + 'px';
+            generatedImage.style.top = randomTop + 'px';
+        
+            // Append the generated image to the image display section
+            var imageDisplay = document.getElementById("image-display");
+            imageDisplay.appendChild(generatedImage);
+        }
+
+        function clearImages() {
+            var imageDisplay = document.getElementById("image-display");
+            imageDisplay.innerHTML = "";
+        }
+
+        // Reposition the generated image if the window is resized
+        window.addEventListener('resize', generateImage);
+
+    </script>
+</body>
+</html>
