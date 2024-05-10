@@ -1,11 +1,10 @@
 /* Custom Font */
 
-/* press-start-2p-latin-400-normal */
 @font-face {
   font-family: 'Press Start 2P';
-  font-style: normal;
+  src: url('press-start-2p.ttf') format('truetype');
   font-weight: normal;
-  src: url('/curiousgifter/page content/Press-Start-2P.ttf') format('truetype');;
+  font-style: normal;
 }
 
 /* Global Styles */
